@@ -1,0 +1,61 @@
+.customerLogin,.pickerLogin{
+  display: block;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 5px;
+  height: 70px;
+  font-size: 19px;
+  font-weight: bold;
+  
+}
+.loginHead{
+  display: flex;
+  justify-content: center;
+  gap: 7%;
+}
+.loginbg{
+  width: 670px;
+  
+}
+.pic{
+  width: 23%;
+  
+}
+
+.customerLogin{
+  background-color:darkslategray;
+  color: lavenderblush;
+  transition: transform 0.3s ease;
+  width: 230px;
+ 
+}
+.customerLogin:hover{
+  transform: scale(1.1);
+}
+.btns{
+  display: flex;
+  flex-direction: column; 
+  gap: 100px; 
+  padding-top: 90px;
+}
+.pickerLogin{
+  background-color:rgba(128, 0, 0, 0.904) ;
+  color: azure;
+  transition: transform 0.3s ease;
+  width: 230px;
+ 
+}
+.pickerLogin:hover{
+  transform: scale(1.1);
+}
+@media screen and (max-width: 768px){
+  .pic{
+    width: 50%;
+    padding: 10px;
+  }
+  .loginbg{
+    display: none;
+  }
+   
+    
+}

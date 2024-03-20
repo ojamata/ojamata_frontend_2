@@ -13,6 +13,12 @@ import CreateUser from "../view/pages/profile/CreateUser";
 import ResetPassword from "../view/pages/reset_password/ResetPassword";
 import Logout from "../view/pages/logout/Logout";
 import PickerRequest from "../view/pages/pickerRequest/PickerRequest";
+import PromptRegister from "../view/pages/Prompts/PromptRegister";
+import PromptLogin from "../view/pages/Prompts/PromptLogin";
+import SignUp from "../view/pages/SignUp/SignUp";
+import Login from "../view/pages/Login/Login";
+
+
 
 export const ROUTES = [
     {
@@ -23,6 +29,7 @@ export const ROUTES = [
                 path: '',
                 element: <LandingPage/>, 
             },
+<
             {
                 path: '/about',
                 element: <About/>, 
@@ -98,5 +105,34 @@ export const ROUTES = [
         element: <PickerRequest/>
     }
     
+
+
+           
+        ]
+    },
+    {
+        path: '/login',
+        element: <PromptLogin/>, 
+    },
+    {
+        path: '/login/picker',
+        element: <Login/>, 
+    },
+    {
+        path: '/login/customer',
+        element: <Login/>, 
+    },
+    {
+        path: '/signup',
+        element: <PromptRegister/>, 
+    },
+    {
+        path: '/signup/picker',
+        element: <SignUp/>, 
+    },
+    {
+        path: '/signup/customer',
+        element: <SignUp/>, 
+    },
 
 ]
