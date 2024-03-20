@@ -5,23 +5,26 @@ import { FaArrowRight } from 'react-icons/fa'
 
 const Ads = () => {
   return (
-    <div className='flex justify-center gap-40 mt-40'>
-      <div className=''>
-        <img className='relative' src={MakintochGreen} alt=''/>
-        <button className='absolute top-[1200px] ml-7 flex border-2 border-black rounded-lg px-4 py-2 bg-white'>
-            Shop More
-            <div className='ml-3 mt-1'>
-                <FaArrowRight/>
-            </div>
+    <div className=' col-span-1 lg:flex items-center justify-center gap-20  mt-10 md:mt-40'>
+      {/* Green Ad */}
+      <div className='relative'>
+        <img className='w-full' src={MakintochGreen} alt='' />
+        <button className='absolute bottom-3 left-3 flex items-center border-2 border-black rounded-lg px-4 py-2 bg-white'>
+          Shop More
+          <div className='ml-3'>
+            <FaArrowRight />
+          </div>
         </button>
       </div>
-      <div>
-        <img className='relative' src={MakintochYellow} alt=''/>
-        <button className='absolute top-[1200px] ml-7 flex border-2 border-black rounded-lg px-4 py-2 bg-white'>
-            Shop More
-            <div className='ml-3 mt-1'>
-                <FaArrowRight/>
-            </div>
+      
+      {/* Yellow Ad */}
+      <div className='relative lg:mt-0 mt-7'>
+        <img className='w-full' src={MakintochYellow} alt='' />
+        <button className='absolute bottom-3 left-3 flex items-center border-2 border-black rounded-lg px-4 py-2 bg-white'>
+          Shop More
+          <div className='ml-3'>
+            <FaArrowRight />
+          </div>
         </button>
       </div>
     </div>

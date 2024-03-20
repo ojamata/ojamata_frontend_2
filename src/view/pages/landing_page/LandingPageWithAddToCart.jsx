@@ -1,20 +1,21 @@
 import React from 'react'
 import Hero from './Hero'
 import Ads from './Ads'
-import ExploreCategories from './ExploreCategories'
 import Benefits from './Benefits'
 import MobileApp from './MobileApp'
+import ExploreCategoriesWithAddToCart from './ExploreCategoriesWithAddToCart'
 
-const LandingPage = () => {
+
+const LandingPageWithAddToCart = () => {
   return (
-    <div className=' lg:px-0 px-10 pt-[120px] overflow-hidden'>
+    <div className='pt-[120px]'>
         <Hero/>
         <Ads/>
-        <ExploreCategories/>
+        <ExploreCategoriesWithAddToCart/>
         <Benefits/>
         <MobileApp/>
     </div>
   )
 }
 
-export default LandingPage
+export default LandingPageWithAddToCart
