@@ -29,7 +29,6 @@ export const ROUTES = [
                 path: '',
                 element: <LandingPage/>, 
             },
-<
             {
                 path: '/about',
                 element: <About/>, 
@@ -103,12 +102,6 @@ export const ROUTES = [
     {
         path: '/orderManager/picker/request',
         element: <PickerRequest/>
-    }
-    
-
-
-           
-        ]
     },
     {
         path: '/login',
