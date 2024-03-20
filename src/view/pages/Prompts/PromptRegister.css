@@ -1,0 +1,66 @@
+.customerRegister,.pickerRegister{
+  display: block;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 5px;
+  height: 70px;
+  font-size: 19px;
+  font-weight: bold;
+  
+}
+
+.registerHead{
+  display: flex;
+  justify-content: center;
+  gap: 7%;
+ 
+}
+.registerbg{
+  padding-top: 0;
+  width: 40%;
+  
+}
+.oja{
+  width: 20%;
+  /* padding: 40px; */
+}
+
+
+.customerRegister{
+  background-color:#2f4f4f;
+  color: lavenderblush;
+  
+  transition: transform 0.3s ease;
+ 
+}
+.customerRegister:hover{
+  transform: scale(1.1);
+
+}
+.btns{
+  display: flex;
+  flex-direction: column; 
+  gap: 100px; 
+  padding-top: 90px;
+}
+.pickerRegister{
+  background-color:rgba(128, 0, 0, 0.904) ;
+  color: azure;
+  width: 230px;
+  transition: transform 0.3s ease;
+
+}
+.pickerRegister:hover{
+  transform: scale(1.1);
+}
+@media screen and (max-width: 768px){
+  .oja{
+    width: 50%;
+    padding: 10px;
+  }
+  .registerbg{
+    display: none;
+  }
+   
+    
+}

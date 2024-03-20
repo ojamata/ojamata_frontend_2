@@ -1,0 +1,209 @@
+.total{
+  display: flex;
+  gap: 70px;
+  padding-left: 70px;
+  
+  
+}
+
+.signUpBody {
+  
+  height: calc(200vh - 200px);
+  flex-shrink: 0;
+  display: block;
+  border-radius: 20px;
+  width: 470px;
+  height: 865px;
+  
+  
+}
+.imgDiv{
+  width: 60%;
+  padding: 70px;
+  padding-right: 80px;
+}
+.logo {
+    
+    width: 400px;
+    padding-top: 20px;
+    padding-left: 60px;
+    
+   
+}
+.create{
+  
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  
+  
+}
+.type{
+  font-family: Nunito;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 37px;
+  letter-spacing: 0em;
+  
+  color:darkslategrey;
+  text-align: center;
+
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  line-height: 35px;
+  letter-spacing: 1px;
+   padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px; 
+  flex-shrink: 0;
+  gap:15px;
+  text-align: center;
+}
+input{
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0;
+  font-size: 18px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-left:20px;
+}
+.emailImage {
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-right: -40px;
+  z-index: 5;
+  color: gray;
+  position: relative;
+  left: 15px;
+ 
+  
+
+}
+.emailCollector {
+  display: flex;
+  gap: -5px;
+  align-items: center;
+}
+.passwordCon1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  gap: 0;
+  width: 100%;
+
+}
+.passwordCon {
+  display: flex;
+  gap: -30px;
+  width: 100%;
+
+}
+
+.eyeSvg {
+  display: flex;
+  margin-left: -50px;
+  margin-top: 25px;
+  width: 30px;
+  color: grey;
+  cursor: pointer;
+}
+.collectorEmail{
+ padding-left: 50px;
+ margin-left: 10px;
+}
+.collectorEmail1{
+  padding-left: 10px;
+  
+
+}
+.createbutton{
+  font-size: 21px;
+  position: relative;
+  color: #f4f6f7;
+  width: 80%;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  background: var(--Secondary-Colour-09, #070707);
+  
+}
+.already{
+  text-align: center;
+  padding-top: 50px;
+}
+.log{
+  color: royalblue;
+}
+.log:hover{
+  color: firebrick;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* padding-left: 15px;
+  padding-bottom: 15px; */
+
+}
+.condition{
+  width: 25px;
+  height: 18px;
+  
+}
+.accept{
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0em;
+  color:darkslategrey;
+  
+  
+ 
+  }
+  .appname{
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .rule{
+    color: royalblue;
+    text-decoration: underline;
+  }
+  .rule:hover{
+    color: darkred;
+  }
+  .warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  @media screen and (max-width: 768px){
+    .vegiesimg{
+      display: none;
+    }
+    .signUpBody{
+      position: absolute;
+      right: 70px;
+    }
+  }
+  @media screen and (max-width: 1108px){
+    .eyeSvg {
+      position:relative;
+      left: 12px;
+
+    }
+    body{
+     overflow: hidden;
+    }
+    
+  
+  }

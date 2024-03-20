@@ -3,6 +3,7 @@ import Logo from '../../assets/images/OjaMata2.png'
 import {FaSearch, FaHome, FaBars} from 'react-icons/fa'
 import Buttons from './Buttons';
 import ShoppingCartIcon from './ShoppingCartIcon';
+import { Link } from 'react-router-dom';
 
 const NavBarWithLogin = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +31,13 @@ const NavBarWithLogin = () => {
           <ShoppingCartIcon/>
         </div>
         <div className='hidden md:flex gap-10'>
-          <Buttons text='Register'  />
-          <Buttons text='Login' textColor='white' backgroundColor='green' />
+          <Link to='/signup'>
+            <Buttons text='Register' />
+          </Link>
+         
+          <Link to='/login'>
+            <Buttons text='Login' textColor='white' backgroundColor='green'/>
+          </Link>
         </div>
       </div>
       {menuOpen && (
@@ -48,8 +54,12 @@ const NavBarWithLogin = () => {
               <ShoppingCartIcon/>
             </div>
             <div className='flex gap-10 mt-5'>
+            <Link to='/signup'>
               <Buttons text='Register' backgroundColor='white'  />
+            </Link>
+            <Link to='/login'>
               <Buttons text='Login' textColor='white' backgroundColor='green' />
+            </Link>    
             </div>
           </div>
         </div>
