@@ -7,7 +7,7 @@ import Profile from '../../../assets/svg/iphoneProfile.svg'
 
 const MobileApp = () => {
   return (
-    <div className='pt-20'>
+    <div className='hidden lg:flex pt-20'>
         <img className='relative w-full  ' src={Background}  alt=''/>
         <div className='absolute top-[1900px] left-[200px] '>
             <div className='flex flex-col w-[600px] gap-10 '>

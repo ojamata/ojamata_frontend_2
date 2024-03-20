@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { items } from '../../../data/items'
 
-const ExploreCategories = () => {
+const ExploreCategoriesWithAddToCart = () => {
     const navigate = useNavigate()
+
     const [showDropdown, setShowDropdown] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -39,8 +40,8 @@ const ExploreCategories = () => {
     
   return (
     <div className='mt-20'>
-      <div className='flex items-center justify-center lg:gap-40 gap-24 px-8'>
-        <h3 className=' lg:text-3xl lg:mr-10 text-2xl'>Explore Categories</h3>
+      <div className='flex items-center justify-center gap-40'>
+        <h3 className=' text-3xl mr-10'>Explore Categories</h3>
         <div className='relative'>
           <button
             className='text-xl hover:text-green-800 lg:hidden'
@@ -77,4 +78,4 @@ const ExploreCategories = () => {
   )
 }
 
-export default ExploreCategories
+export default ExploreCategoriesWithAddToCart
