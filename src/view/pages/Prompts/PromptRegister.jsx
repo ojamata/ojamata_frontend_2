@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../../../assets/images/real-food-pyramid-assortment-top-view.jpg'
+import image from '../../../assets/images/signupimage1.jpg'
 import './PromptRegister.css'
 import oja from '../../../assets/images/OjaMata2.png'
 import { Link } from 'react-router-dom'
