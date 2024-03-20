@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 import Logo from '../../assets/images/OjaMata2.png'
 import {FaSearch, FaHome, FaBars, FaUserCircle} from 'react-icons/fa'
 import ShoppingCartIcon from './ShoppingCartIcon';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavBarWithoutLogin = ({name}) => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate()
 
     const toggleMenu = () => {
       setMenuOpen(!menuOpen);
     };
+    const handleShoppingCartNavigate = () => {
+      navigate('/shopping-cart')
+    }
     return (
         <div className='flex items-center justify-center gap-10 py-5 fixed top-0 left-0 w-full bg-white z-[1000] '>
         <div>
@@ -27,10 +32,12 @@ const NavBarWithoutLogin = ({name}) => {
           </div>
           <div className='hidden md:flex gap-10'>
             <FaHome size={24}  />
-            <ShoppingCartIcon/>
+            <div onClick={handleShoppingCartNavigate}>
+              <ShoppingCartIcon/>
+            </div>
           </div>
           <div>
-            <FaUserCircle/>
+            <FaUserCircle size={24}/>
             <p>{name}</p>
           </div>
         </div>

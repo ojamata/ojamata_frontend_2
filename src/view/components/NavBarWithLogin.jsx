@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import Logo from '../../assets/images/OjaMata2.png'
 import {FaSearch, FaHome, FaBars} from 'react-icons/fa'
 import Buttons from './Buttons';
+
 import ShoppingCartIcon from './ShoppingCartIcon';
 import { Link } from 'react-router-dom';
+
 
 const NavBarWithLogin = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,7 +30,6 @@ const NavBarWithLogin = () => {
         </div>
         <div className='hidden md:flex gap-10'>
           <FaHome size={24}  />
-          <ShoppingCartIcon/>
         </div>
         <div className='hidden md:flex gap-10'>
           <Link to='/signup'>
@@ -51,7 +52,6 @@ const NavBarWithLogin = () => {
             </div>
             <div className='flex gap-10 mt-5'>
               <FaHome size={24}  />
-              <ShoppingCartIcon/>
             </div>
             <div className='flex gap-10 mt-5'>
             <Link to='/signup'>
