@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import React, { useState } from 'react';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
-const ItemIncreaseBtn = ({quantity}) => {
+const ItemIncreaseBtn = ({ quantity, onQuantityChange }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
 
   const increaseQuantity = () => {
-    setItemQuantity(prevQuantity => prevQuantity + 1);
+    const newQuantity = itemQuantity + 1;
+    setItemQuantity(newQuantity);
+    onQuantityChange(newQuantity); // Notify parent component about quantity change
   };
 
   const decreaseQuantity = () => {
-    if (itemQuantity > 0) {
-      setItemQuantity(prevQuantity => prevQuantity - 1);
+    if (itemQuantity > 1) {
+      const newQuantity = itemQuantity - 1;
+      setItemQuantity(newQuantity);
+      onQuantityChange(newQuantity); // Notify parent component about quantity change
     }
   };
+
   return (
     <div className='flex'>
       <p className='lg:text-3xl text-2xl'>{itemQuantity}</p>
@@ -21,7 +26,7 @@ const ItemIncreaseBtn = ({quantity}) => {
         <button onClick={decreaseQuantity}><FaArrowDown/></button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ItemIncreaseBtn
+export default ItemIncreaseBtn;
