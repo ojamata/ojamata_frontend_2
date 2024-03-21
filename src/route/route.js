@@ -17,6 +17,8 @@ import PromptRegister from "../view/pages/Prompts/PromptRegister";
 import PromptLogin from "../view/pages/Prompts/PromptLogin";
 import SignUp from "../view/pages/SignUp/SignUp";
 import Login from "../view/pages/Login/Login";
+import Address from '../../src/view/pages/profile/Address'
+import AdminsCustomerOrderList from "../view/pages/admins_list/AdminsCustomerOrderList";
 
 
 
@@ -127,5 +129,21 @@ export const ROUTES = [
         path: '/signup/customer',
         element: <SignUp/>, 
     },
+    {
+        path: '/customer/profile',
+        element: <UserProfile/>, 
+    },
+    {
+        path: '/customer/resetpassword',
+        element: <ResetPassword/>, 
+    },
+    {
+        path: '/customer/address',
+        element: <Address/>, 
+    },
+    {
+        path:'customer/orderhistory',
+        element:<AdminsCustomerOrderList/>
+    }
 
 ]

@@ -82,6 +82,17 @@ const NavBarPlain = ({name}) => {
             </div>
           </div>
         )}
+        {
+            // profile && (
+            //     <div className='absolute flex flex-col justify-center text-center  top-full right-10 lg:right-60 w-[200px] bg-black text-white py-3 gap-6 '>
+            //         <p className='hover:cursor-pointer' onClick={handleProfileDetails}>Profile Details</p>
+            //         <p className='hover:cursor-pointer' onClick={handleOrderManger}>Add OrderManager</p>
+            //         <p className='hover:cursor-pointer' onClick={handleAdmin}>Add Admin</p>
+            //         <p className='hover:cursor-pointer' onClick={handleResetPassword}>Reset Password</p>
+            //         <p className='hover:cursor-pointer' onClick={handleLogout}>Logout</p>
+            //     </div>
+            // )
+        }
       </div>
       {
         isPickUpsVisible && (
