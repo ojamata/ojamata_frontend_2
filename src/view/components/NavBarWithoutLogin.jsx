@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NavBarWithoutLogin = ({name}) => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [profileOpen, setProfileOpen] = useState(false);
     const [cartLength, setCartLength] = useState(0);
     const navigate = useNavigate()
 
@@ -54,7 +55,7 @@ const NavBarWithoutLogin = ({name}) => {
       getLength();
     },[])
     return (
-        <div className='flex items-center justify-center gap-10 py-5 fixed top-0 left-0 w-full bg-white z-[1000] '>
+      <div className='flex items-center justify-center gap-10 py-5 fixed top-0 left-0 w-full bg-white z-[1000] '>
         <div>
           <img className='w-60 mr-24' src={Logo} alt=''/>
         </div>
@@ -79,8 +80,7 @@ const NavBarWithoutLogin = ({name}) => {
           <FaUserCircle size={24} />
           <p>{name}</p>
         </div>
-      </div>
-      {menuOpen && (
+        {menuOpen && (
         <div className='absolute top-full left-0 w-full bg-black text-white py-3 md:hidden'>
           <div className='flex flex-col items-center'>
             <div className='relative'>
@@ -119,7 +119,8 @@ const NavBarWithoutLogin = ({name}) => {
                   </p>
                 </div>
               )}
-    </div>
+      </div>
+    
   );
 };
 
