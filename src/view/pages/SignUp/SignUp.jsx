@@ -121,6 +121,7 @@ const SignUp = ({ onSelect }) => {
 
                     <div>
                         <input
+                            className="fillup"
                             name="firstName"
                             placeholder="First Name"
                             type="text" required
@@ -133,6 +134,7 @@ const SignUp = ({ onSelect }) => {
 
                     <div>
                         <input
+                            className="fillup"
                             name="lastName"
                             placeholder="Last Name"
                             type="text"
@@ -146,6 +148,7 @@ const SignUp = ({ onSelect }) => {
                     <div className='emailCollector'>
                         <MdOutlineMail className='emailImage' />
                         <input
+                            
                             type="email"
                             id="email1"
                             className='collectorEmail'
