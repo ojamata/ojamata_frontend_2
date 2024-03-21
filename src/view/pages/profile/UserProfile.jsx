@@ -21,7 +21,7 @@ const UserProfile = () => {
       lastName: 'Doe',
       email: 'johndoe@example.com',
       phoneNumber: '08138112782',
-      address: '123 Main St',
+      // address: '123 Main St',
       // Add more user data fields as needed
     };
     setUserData(userDataFromAPI);
@@ -68,10 +68,10 @@ const UserProfile = () => {
           <label htmlFor="phone-number" className="block text-sm font-medium text-gray-700">Phone Number</label>
           <input type="phone" id="email" name="phoneNumber" value={userData.phoneNumber} onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-5 py-3" />
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
           <textarea id="address" name="address" value={userData.address} onChange={handleInputChange} rows="3" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-5 py-3"></textarea>
-        </div>
+        </div> */}
         {/* Add more input fields for other user data */}
         <button type="submit" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
       </form>
