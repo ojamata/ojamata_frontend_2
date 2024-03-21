@@ -11,6 +11,7 @@ const NavBarPlain = ({name}) => {
     const [isPickUpsVisible, setIsPickUpsVisible] = useState(true)
     const [isHomeVisible, setIsHomeVisible] = useState(false)
     const [isNotificationVisible, setIsNotificationVisible] = useState(false)
+    const [profile, setProfile] = useState(false)
 
 
     const navigate = useNavigate()
@@ -37,7 +38,26 @@ const NavBarPlain = ({name}) => {
       setIsHomeVisible(false)
       setIsNotificationVisible(true)
     }
+
+    const handleProfile = () => {
+      setProfile(!profile)
+    }
     
+    const handleProfileDetails = () => {
+      navigate('/picker/profile')
+    }
+
+    const handleVerification = () => {
+      navigate('/picker/verification')
+    }
+
+    const addPaymentInfo = () => {
+      navigate('/picker/addPaymentInfo')
+    }
+
+    const handleLogout = () => {
+      navigate('/logout')
+    }
 
   return (
     <div>
@@ -56,12 +76,14 @@ const NavBarPlain = ({name}) => {
             <FaBars size={24} onClick={toggleMenu} />
           </div>
           <div className='hidden md:flex gap-10 text-lg'>
-            <p onClick={handleHome}>Home</p>
-            <p onClick={handlePickUps}>Pick-Up History</p>
-            <p onClick={handleNotification}>Notifications</p>
+            <p className='hover:cursor-pointer' onClick={handleHome}>Home</p>
+            <p className='hover:cursor-pointer' onClick={handlePickUps}>Pick-Up History</p>
+            <p className='hover:cursor-pointer' onClick={handleNotification}>Notifications</p>
           </div>
           <div>
-            <FaUserCircle size={24}/>
+            <div onClick={handleProfile} className=''>
+              <FaUserCircle size={24}/>
+            </div>
             <p>{name}</p>
           </div>
         </div>
@@ -75,23 +97,23 @@ const NavBarPlain = ({name}) => {
                 </div>
               </div>
               <div className='flex gap-10 mt-5'>
-                <p onClick={handleHome}>Home</p>
-                <p onClick={handlePickUps}>Pick-Up History</p>
-                <p onClick={handleNotification}>Notifications</p>              
+                <p className='hover:cursor-pointer' onClick={handleHome}>Home</p>
+                <p className='hover:cursor-pointer' onClick={handlePickUps}>Pick-Up History</p>
+                <p className='hover:cursor-pointer' onClick={handleNotification}>Notifications</p>              
               </div>
             </div>
           </div>
         )}
         {
-            // profile && (
-            //     <div className='absolute flex flex-col justify-center text-center  top-full right-10 lg:right-60 w-[200px] bg-black text-white py-3 gap-6 '>
-            //         <p className='hover:cursor-pointer' onClick={handleProfileDetails}>Profile Details</p>
-            //         <p className='hover:cursor-pointer' onClick={handleOrderManger}>Add OrderManager</p>
-            //         <p className='hover:cursor-pointer' onClick={handleAdmin}>Add Admin</p>
-            //         <p className='hover:cursor-pointer' onClick={handleResetPassword}>Reset Password</p>
-            //         <p className='hover:cursor-pointer' onClick={handleLogout}>Logout</p>
-            //     </div>
-            // )
+          profile && (
+            <div className='absolute flex flex-col top-full right-0 lg:right-60 bg-black text-white py-3 w-[200px] text-center gap-6 '>
+              <p className='hover:cursor-pointer' onClick={handleProfileDetails}>Profile Details</p>
+              <p className='hover:cursor-pointer' onClick={handleVerification}>Add Verification Info</p>
+              <p className='hover:cursor-pointer' onClick={addPaymentInfo}>Add Payment Info</p>
+              <p className='hover:cursor-pointer' onClick={handleLogout}>Logout</p>
+
+            </div>
+          )
         }
       </div>
       {

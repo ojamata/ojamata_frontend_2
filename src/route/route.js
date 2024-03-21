@@ -13,13 +13,16 @@ import CreateUser from "../view/pages/profile/CreateUser";
 import ResetPassword from "../view/pages/reset_password/ResetPassword";
 import Logout from "../view/pages/logout/Logout";
 import PickerRequest from "../view/pages/pickerRequest/PickerRequest";
+import PickerVerification from "../view/pages/pickers_verification/PickerVerification";
+import PickerPaymentInfo from "../view/pages/picker_payment_info/PickerPaymentInfo";
+import Response from "../view/components/Response";
+import LandingPageWithAddToCart from "../view/pages/landing_page/LandingPageWithAddToCart";
 import PromptRegister from "../view/pages/Prompts/PromptRegister";
 import PromptLogin from "../view/pages/Prompts/PromptLogin";
 import SignUp from "../view/pages/SignUp/SignUp";
 import Login from "../view/pages/Login/Login";
 import Address from '../../src/view/pages/profile/Address'
 import AdminsCustomerOrderList from "../view/pages/admins_list/AdminsCustomerOrderList";
-
 
 
 export const ROUTES = [
@@ -43,7 +46,7 @@ export const ROUTES = [
         children: [
             {
                 path: '/customer',
-                element: <LandingPage/>, 
+                element: <LandingPageWithAddToCart/>, 
             },
             {
                 path: '/customer/about',
@@ -104,6 +107,22 @@ export const ROUTES = [
     {
         path: '/orderManager/picker/request',
         element: <PickerRequest/>
+    },
+    {
+        path: '/picker/profile',
+        element: <UserProfile/>
+    },
+    {
+        path: '/picker/verification',
+        element: <PickerVerification/>
+    },
+    {
+        path: '/picker/addPaymentInfo',
+        element: <PickerPaymentInfo/>
+    },
+    {
+        path: '/paymentInfo/success',
+        element: <Response text='Payment Successful'/>
     },
     {
         path: '/login',

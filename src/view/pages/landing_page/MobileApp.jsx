@@ -9,7 +9,7 @@ const MobileApp = () => {
   return (
     <div className='hidden lg:flex pt-20'>
         <img className='relative w-full  ' src={Background}  alt=''/>
-        <div className='absolute top-[1900px] left-[200px] '>
+        <div className='absolute top-[2200px] left-[200px] '>
             <div className='flex flex-col w-[600px] gap-10 '>
                 <p className=' text-7xl text-green-950'>Shop Faster with OjaMata App</p>
                 <p className=' text-2xl font-extralight'>Soon on both IOS and Android</p>
@@ -18,7 +18,7 @@ const MobileApp = () => {
                 <img src={Download} alt=''/>
             </div>
         </div>
-        <div className='flex absolute top-[1800px] right-[200px] '>
+        <div className='flex absolute top-[2100px] right-[200px] '>
             <img  src={Profile} alt=''/>
             <img className='ml-[-30px]' src={Cart} alt=''/>
         </div>
