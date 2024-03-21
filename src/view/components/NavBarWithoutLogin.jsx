@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../../assets/images/OjaMata2.png'
 import {FaSearch, FaHome, FaBars, FaUserCircle} from 'react-icons/fa'
 import ShoppingCartIcon from './ShoppingCartIcon';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NavBarWithoutLogin = ({name}) => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [cartLength, setCartLength] = useState(0);
     const navigate = useNavigate()
 
     const toggleMenu = () => {
@@ -15,6 +16,18 @@ const NavBarWithoutLogin = ({name}) => {
     const handleShoppingCartNavigate = () => {
       navigate('/shopping-cart')
     }
+
+    const getLength = () => {
+      const storedCartItems = localStorage.getItem('cartItems');
+      if(storedCartItems){
+        const parsedCartItems = JSON.parse(storedCartItems);
+        setCartLength(parsedCartItems.length)
+      }
+      
+    }
+    useEffect(()=> {
+      getLength();
+    },[])
     return (
         <div className='flex items-center justify-center gap-10 py-5 fixed top-0 left-0 w-full bg-white z-[1000] '>
         <div>
@@ -33,7 +46,7 @@ const NavBarWithoutLogin = ({name}) => {
           <div className='hidden md:flex gap-10'>
             <FaHome size={24}  />
             <div onClick={handleShoppingCartNavigate}>
-              <ShoppingCartIcon/>
+              <ShoppingCartIcon cartSize={cartLength} />
             </div>
           </div>
           <div>

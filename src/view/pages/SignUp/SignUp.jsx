@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import oja from '../../../assets/images/OjaMata2.png';
 import './SignUp.css'
-import image from '../../../assets/images/healthy-vegetables-with-space-bottom.jpg'
+import image from '../../../assets/images/healthy.jpg'
 
 import { FaEye,FaEyeSlash} from 'react-icons/fa';
 
