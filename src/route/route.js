@@ -17,6 +17,11 @@ import PickerVerification from "../view/pages/pickers_verification/PickerVerific
 import PickerPaymentInfo from "../view/pages/picker_payment_info/PickerPaymentInfo";
 import Response from "../view/components/Response";
 import LandingPageWithAddToCart from "../view/pages/landing_page/LandingPageWithAddToCart";
+import PromptRegister from "../view/pages/Prompts/PromptRegister";
+import PromptLogin from "../view/pages/Prompts/PromptLogin";
+import SignUp from "../view/pages/SignUp/SignUp";
+import Login from "../view/pages/Login/Login";
+
 
 export const ROUTES = [
     {
@@ -116,10 +121,30 @@ export const ROUTES = [
     {
         path: '/paymentInfo/success',
         element: <Response text='Payment Successful'/>
-    }
-
-
-    
-    
+    },
+    {
+        path: '/login',
+        element: <PromptLogin/>, 
+    },
+    {
+        path: '/login/picker',
+        element: <Login/>, 
+    },
+    {
+        path: '/login/customer',
+        element: <Login/>, 
+    },
+    {
+        path: '/signup',
+        element: <PromptRegister/>, 
+    },
+    {
+        path: '/signup/picker',
+        element: <SignUp/>, 
+    },
+    {
+        path: '/signup/customer',
+        element: <SignUp/>, 
+    },
 
 ]

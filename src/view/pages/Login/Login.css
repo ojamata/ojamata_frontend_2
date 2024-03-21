@@ -1,0 +1,165 @@
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+.storecontainer{
+  width: 50%;
+  height: max-content;
+  padding-left: 120px;
+}
+.main{
+  display: flex;
+  gap: 10px; 
+  width: 100%;
+  padding-top: 50px; 
+  /* justify-content: space-between; */
+}
+
+.image {
+  width: 300px; /* Adjust as needed */
+  height: 15%;
+  margin-bottom: 30px; 
+  margin-left: 170px;
+  
+}
+
+.login-form {
+  width: 100%; /* Adjust as needed */
+  height: 100%;
+  padding-left:200px; 
+  border: none;
+  
+  justify-items: center;
+
+}
+.sign:hover{
+  color: royalblue;
+}
+
+.email-label,
+.password-label {
+  margin-bottom: 5px;
+}
+
+.email-input,
+.password-input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.forgottenText{
+  color: royalblue;
+  font-size: 17px;
+  
+}
+
+.forgottenText:hover{
+  color: maroon;
+}
+
+
+.login-button{
+  width: 90%;
+  padding: 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 15px;
+  background-color:rgba(0, 100, 0, 0.809);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+
+
+}
+
+
+.login-button:hover{
+  transform: scale(1.1);
+
+}
+.buttoncase{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+
+
+.account {
+  color: #888;
+  font-size: 14px;
+  margin-top: 30%; /* Add some space above the account text */
+  text-align: center;
+}
+
+/* Styling for the sign-up link */
+.signUp {
+  color:darkgreen; /* Set color for the sign-up link */
+  cursor: pointer;
+  
+}
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-right: 90px;
+    
+  }
+  .login-form{
+    padding-left: 100px;
+    align-items: center;
+    left: 60px;
+  }
+  
+  .storecontainer {
+    display: block; /* Show the store image on smaller screens */
+    margin-bottom: 20px;
+  }
+  .email-input, 
+.password-input{
+  width: 100%;
+  border-radius: 5px;
+} 
+.store{
+  display: none;
+}
+.image{
+  padding-right: 100px;
+}
+.login-container{
+ width: fit-content;
+}
+.password-container{
+ border-radius: 5px;
+  position: relative;
+}
+.eye-icon{
+  position: absolute;
+  left: 90%;
+
+}
+}
+
+
+  
+
+
