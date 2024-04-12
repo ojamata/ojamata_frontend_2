@@ -7,7 +7,7 @@ import MobileApp from './MobileApp'
 
 const LandingPage = () => {
   return (
-    <div className=' lg:px-0 px-10 pt-[120px] overflow-hidden'>
+    <div className=' lg:px-0 px-10 pt-[120px] overflow-scroll'>
         <Hero/>
         <Ads/>
         <ExploreCategories/>

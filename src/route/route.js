@@ -129,11 +129,7 @@ export const ROUTES = [
         element: <PromptLogin/>, 
     },
     {
-        path: '/login/picker',
-        element: <Login/>, 
-    },
-    {
-        path: '/login/customer',
+        path: '/login/user',
         element: <Login/>, 
     },
     {
@@ -142,11 +138,11 @@ export const ROUTES = [
     },
     {
         path: '/signup/picker',
-        element: <SignUp/>, 
+        element: <SignUp role='PICKER'/>, 
     },
     {
         path: '/signup/customer',
-        element: <SignUp/>, 
+        element: <SignUp role='CUSTOMER'/>, 
     },
     {
         path: '/customer/profile',

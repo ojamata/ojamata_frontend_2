@@ -62,7 +62,7 @@ const About = () => {
           OjaMata is the brainchild of a group of passionate techpreneurs who identified a gap in the market and decided to take action. Founded in 2024, our startup was born out of a shared vision to revolutionize the way people access fresh groceries.
         </p>
         <p className="text-lg">
-          Our journey began when Harry, Edde and Esther realized the challenges faced by individuals who struggled to find time for grocery shopping or lacked access to quality products in their local area. Motivated by a desire to make a positive impact, our founders set out to create a solution that would empower customers to conveniently shop for groceries from the comfort of their homes.
+          Our journey began when Harry, Eddie and Esther realized the challenges faced by individuals who struggled to find time for grocery shopping or lacked access to quality products in their local area. Motivated by a desire to make a positive impact, our founders set out to create a solution that would empower customers to conveniently shop for groceries from the comfort of their homes.
         </p>
         <p className="text-lg">
           Despite the initial hurdles and uncertainties that come with starting a business, our startup persevered. We leveraged technology, forged partnerships with local suppliers, and fine-tuned our business model to meet the evolving needs of our customers.
@@ -76,7 +76,7 @@ const About = () => {
       <section>
         <h2 className="text-2xl font-bold mb-2">Contact Us</h2>
         <p className="text-lg mb-4">
-          Have questions or feedback? We'd love to hear from you. Reach out to us at <a href='https://mail.google.com/mail'>ojamata@gmail.com</a>.
+          Have questions or feedback? We'd love to hear from you. Reach out to us at <a href='https://mail.google.com/mail'>ojamata@ojamata.com</a>.
         </p>
       </section>
     </div>
