@@ -125,15 +125,12 @@ export const ROUTES = [
         element: <Response text='Payment Successful'/>
     },
     {
-        path: '/login',
+        path: 'prompt/login',
         element: <PromptLogin/>, 
     },
+
     {
-        path: '/login/picker',
-        element: <Login/>, 
-    },
-    {
-        path: '/login/customer',
+        path: '/login',
         element: <Login/>, 
     },
     {
@@ -142,11 +139,11 @@ export const ROUTES = [
     },
     {
         path: '/signup/picker',
-        element: <SignUp/>, 
+        element: <SignUp role='PICKER'/>, 
     },
     {
         path: '/signup/customer',
-        element: <SignUp/>, 
+        element: <SignUp role='CUSTOMER'/>, 
     },
     {
         path: '/customer/profile',
@@ -162,7 +159,7 @@ export const ROUTES = [
     },
     {
         path:'customer/orderhistory',
-        element:<AdminsCustomerOrderList/>
+        element:<OrderPage/>
     }
 
 ]

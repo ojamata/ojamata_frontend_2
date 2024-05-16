@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import {jwtDecode} from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CreateUser = ({role}) => {
     const [userData, setUserData] = useState({
-        id: 1,
         firstName: '',
         lastName: '',
         email: '',
@@ -10,6 +12,8 @@ const CreateUser = ({role}) => {
         address: '',
         // Add more user data fields as needed
       });
+      const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,10 +30,34 @@ const CreateUser = ({role}) => {
       };
     const capitalizedRole = role.charAt(0).toUpperCase() + role.slice(1);
 
+    const apiBaseUrl = 'https://ojamata.onrender.com/api/admin/create/order-manager'
+
+  const axiosInstance = axios.create({
+    baseURL: apiBaseUrl,
+    timeout: 5000,
+    crossdomain: true,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+      
+    }
+  });
+
+  const createUser = async () => {
+    try {
+      const response = await axiosInstance.post(apiBaseUrl, userData);
+      console.log('Logged in', response.data);
+
+      
+    } catch (error) {
+      console.error('Error getting pickers', error);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">Create {capitalizedRole}</h1>
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
+      <form onSubmit={handleSubmit}  className="max-w-lg mx-auto">
         <div className="mb-4">
           <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">First Name</label>
           <input type="text" id="name" name="firstName"  onChange={handleInputChange} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-5 py-3" />
@@ -55,7 +83,7 @@ const CreateUser = ({role}) => {
           <textarea id="address" name="address" onChange={handleInputChange} rows="3" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md px-5 py-3"></textarea>
         </div>
         {/* Add more input fields for other user data */}
-        <button type="submit" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
+        <button onClick={createUser} type="submit" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Changes</button>
       </form>
     </div>
   )

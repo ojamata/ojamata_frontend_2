@@ -12,12 +12,13 @@ import React, { useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import TermsAndConditions from '../TermsAndCondition/TermsAndCondition'
+import axios from 'axios';
 
 
 
 
 
-const SignUp = ({ onSelect }) => {
+const SignUp = ({ role }) => {
     
     const [selectedRole, setSelectedRole] = useState(null);
     const [password, setPassword] = useState('');
@@ -48,51 +49,30 @@ const SignUp = ({ onSelect }) => {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
+        password: '',
+        role: role
     });
+    const apiBaseUrl = 'https://ojamata.onrender.com/api/register/user'
 
-    const createUser = async (e) => {
-        console.log("a click event happened");
-        e.preventDefault();
-        try {
-            // const apiUrl = `https://ojamata-backend.onrender.com/api/register/customer`;
-            const apiUrl = `http://localhost:8080/api/register/customer`;
+  const axiosInstance = axios.create({
+    baseURL: apiBaseUrl,
+    timeout: 5000,
+    crossdomain: true,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
-            const userPhoneData = {
-                ...userData,
-                phoneNumber: phoneNumber,
-                password: password,
-                // selectedRole: role
-            };
+  const createUser = async () => {
+    try {
+      const response = await axiosInstance.post(apiBaseUrl, userData);
+      console.log('The pickers', response.data);
+      console.log(userData);
 
-            await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userPhoneData),
-            }).then((res) => res.json())
-                .then(data => {
-                    console.log(data.message);
-                });
-
-            setPassword("");
-            setSelectedRole(null);
-            setPhoneNumber("");
-            setValid(true);
-            setUserData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                phoneNumber: "",
-                password: "",
-            });
-
-
-        } catch (error) {
-            console.error("Account not created:", error.message);
-        }
-    };
+    } catch (error) {
+      console.error('Error getting pickers', error);
+    }
+  };
 
 
     return (
@@ -164,7 +144,13 @@ const SignUp = ({ onSelect }) => {
 
                     <div className='passwordCon1'>
                         <div className='passwordCon'>
-                          <input type={showPassword ? "text" : "password"} className="collectorEmail1"  placeholder="Password"/>
+                            <input 
+                                type={showPassword ? "text" : "password"} 
+                                className="collectorEmail1"  
+                                placeholder="Password"
+                                value={userData.password}
+                                onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+                            />
                         {/* Toggle password visibility icon */}
                          {showPassword ? (
                         <FaEyeSlash onClick={togglePasswordVisibility} className='eyeSvg' />
@@ -180,7 +166,6 @@ const SignUp = ({ onSelect }) => {
                             name="phone"
                             placeholder="Enter Phone Number "
                             inputProps={{ required: true }}
-                            value={phoneNumber}
                             onChange={handlePhoneChange}
                             style={{ width: '20px', fontSize: '15px' }}
                             inputStyle={{ width: '370px', height: '45px', borderRadius: '10px', fontSize: '16px' }}
@@ -195,7 +180,7 @@ const SignUp = ({ onSelect }) => {
                     <div>
                         <button className='createbutton' onClick={createUser}>Create Account</button>
                     </div>
-                    <p className='already'>Already have an Accounnt ? <Link className='log' to={'/login'}> Login</Link></p>
+                    <p className='already'>Already have an Account ? <Link className='log' to={'/login'}> Login</Link></p>
 
                 </div>
             </div>

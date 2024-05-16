@@ -13,12 +13,10 @@ const PromptLogin = () => {
     <div className="loginHead">
       
       <div className="btns">
-        <Link to='/login/customer'>
-          <button className="customerLogin">Login as Customer</button>
+        <Link to='/login'>
+          <button className="customerLogin">Login</button>
         </Link>
-        <Link to='/login/picker'>
-          <button className="pickerLogin">Login as Picker</button>
-        </Link>
+        
         
       </div>
       <img src={image} alt="customer" className='loginbg'/>

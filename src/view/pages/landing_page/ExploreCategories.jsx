@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  {items}  from '../../../data/items';
 import ItemIncreaseBtn from '../shopping_cart/ItemIncreaseBtn';
+import axios from 'axios';
 
 const ExploreCategoriesWithAddToCart = () => {
   const navigate = useNavigate();
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [items, setItems] = useState([])
+  const [filteredItems, setFilteredItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -17,6 +19,29 @@ const ExploreCategoriesWithAddToCart = () => {
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
     }
+    const apiBaseUrl = 'https://ojamata.onrender.com/api/item/get-all';
+
+    const axiosInstance = axios.create({
+      baseURL: apiBaseUrl,
+      timeout: 5000,
+      crossdomain: true,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')  
+      }
+    });
+    const fetchItems = async () => {
+      try {
+        const response = await axiosInstance.post();
+        console.log(response);
+        setItems(response.data);
+        setFilteredItems(response.data); // Initialize filtered items with all items
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems()
   }, []);
 
 
@@ -93,18 +118,21 @@ const ExploreCategoriesWithAddToCart = () => {
         
       </div>
       <div className='grid grid-cols-4 gap-6 lg:gap-x-60 mt-10 items-center justify-center'>
-      {filteredItems.length === 0 ? (
-            <div>No items found for {selectedCategory}</div>
-          ) : (
-            filteredItems.map((item) => (
-              <div className='flex flex-col gap-5 items-center justify-center' key={item.id}>
-                <p>{item.itemName}</p>
-                <p>{item.price}</p>
-                <button className=' bg-green-800 px-4 py-2 text-white rounded-lg' onClick={() => handleAddToCart()}>Add to Cart</button>
-              </div>
-            ))
-          )}
-        </div>
+        {/* Check if filteredItems is empty */}
+        {filteredItems.length === 0 ? (
+          <div>No items found for {selectedCategory}</div>
+        ) : (
+          // Map over filteredItems and render each item
+          filteredItems.map((item, index) => (
+            <div className='flex flex-col gap-5 items-center justify-center' key={index}>
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+              {/* Pass item name to handleAddToCart */}
+              <button className='bg-green-800 px-4 py-2 text-white rounded-lg' onClick={() => handleAddToCart(item.itemName)}>Add to Cart</button>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
