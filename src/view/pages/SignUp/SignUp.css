@@ -75,11 +75,9 @@
 .emailImage {
   height: 1.8rem;
   width: 1.8rem;
-  margin-right: -40px;
-  z-index: 5;
-  color: gray;
-  position: relative;
-  left: 15px;
+  position: absolute;
+  right:14%;
+
  
   
 
@@ -114,11 +112,27 @@
   cursor: pointer;
 }
 .collectorEmail{
- padding-left: 50px;
- margin-left: 10px;
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0;
+  font-size: 18px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-left:20px;
+  
 }
 .collectorEmail1{
-  padding-left: 10px;
+  width: 100%;
+  padding: 6px;
+  margin: 6px 0;
+  font-size: 18px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-left:20px;
   
 
 }
@@ -148,7 +162,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+
   /* padding-left: 15px;
   padding-bottom: 15px; */
 

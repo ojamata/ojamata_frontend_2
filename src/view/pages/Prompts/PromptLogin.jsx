@@ -16,8 +16,6 @@ const PromptLogin = () => {
         <Link to='/login'>
           <button className="customerLogin">Login</button>
         </Link>
-        
-        
       </div>
       <img src={image} alt="customer" className='loginbg'/>
     </div>

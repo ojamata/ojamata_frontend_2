@@ -47,6 +47,7 @@
 .email-input,
 .password-input {
   width: 100%;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -58,7 +59,7 @@
 
 .eye-icon {
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
