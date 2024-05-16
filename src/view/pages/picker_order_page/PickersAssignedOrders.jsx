@@ -1,11 +1,44 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+import React, { useEffect, useState } from 'react';
 
 const PickersAssignedOrders = () => {
+  // const [orders, setOrders] = useState([])
   const [orders, setOrders] = useState([
     { id: 1, customerName: 'John Doe', phoneNumber: '123-456-7890', address: '123 Main St', deliveryStatus: 'pending' },
     { id: 2, customerName: 'Jane Smith', phoneNumber: '987-654-3210', address: '456 Oak Ave', deliveryStatus: 'pending' },
     // Add more sample orders as needed
   ]);
+  // const apiBaseUrl = 'https://ojamata.onrender.com/api/picker/get-pickups';
+
+  // const axiosInstance = axios.create({
+  //   baseURL: apiBaseUrl,
+  //   timeout: 5000,
+  //   crossdomain: true,
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+  //   }
+  // });
+
+  // const getAllPickedOrders = async () => {
+  //   try {
+      
+  //     const response = await axiosInstance.get(apiBaseUrl);
+  //     console.log('Orders', response.data);
+      
+  //     const token = localStorage.getItem("accessToken");
+  //     const decoded = jwtDecode(token);
+  //     console.log('User Data:', decoded);
+
+  //   } catch (error) {
+  //     console.error('Error sending request:', error);
+  //   }
+  // };
+
+  // useEffect(()=>{
+  //   getAllPickedOrders()
+  // }, []);
 
   const handleArrival = (orderId) => {
     const otp = generateOTP();

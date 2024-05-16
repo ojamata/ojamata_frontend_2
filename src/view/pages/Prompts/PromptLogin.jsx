@@ -13,7 +13,7 @@ const PromptLogin = () => {
     <div className="loginHead">
       
       <div className="btns">
-        <Link to='/login/user'>
+        <Link to='/login'>
           <button className="customerLogin">Login</button>
         </Link>
       </div>

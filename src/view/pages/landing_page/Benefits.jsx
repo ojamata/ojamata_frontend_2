@@ -3,7 +3,7 @@ import {benefits} from '../../../data/benefits'
 
 const Benefits = () => {
   return (
-    <div>
+    <div className='flex flex-col'>
         <div className='lg:flex items-center justify-center pt-20 gap-20 '>
             {benefits.map((benefit, index) => (
                 <div className='flex gap-5 lg:mb-0 mb-10 items-center justify-center' key={index}>

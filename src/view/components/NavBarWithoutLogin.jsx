@@ -72,7 +72,7 @@ const NavBarWithoutLogin = ({name}) => {
           <div className='hidden md:flex gap-10'>
             <FaHome size={24}  />
             <div onClick={handleShoppingCartNavigate}>
-              <ShoppingCartIcon cartSize={cartLength} />
+              <ShoppingCartIcon  />
             </div>
           </div>
         </div>

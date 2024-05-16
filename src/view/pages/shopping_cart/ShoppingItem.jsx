@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ItemIncreaseBtn from './ItemIncreaseBtn'
 import { FaArrowLeft, FaArrowRight, FaTrash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import {jwtDecode} from 'jwt-decode';
+import axios from 'axios';
 
 const ShoppingItem = () => {
   const navigate = useNavigate()
@@ -53,6 +55,70 @@ const ShoppingItem = () => {
   const tax = 0; // Assuming no tax for now
   const total = subtotal + shipping + tax;
 
+  const handleCheckout = () => {
+    const orderedProducts = [];
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")); // Parse the cart items from localStorage
+    const allItems = JSON.parse(localStorage.getItem("allItems")); // Parse all items from localStorage
+  
+    // Loop through each item in the cart
+    for (let cartItem of cartItems) {
+      // Find the corresponding item in the list of all items
+      const matchingItem = allItems.find(item => item.name === cartItem.name);
+  
+      // If a matching item is found, add it to the ordered products list along with the quantity
+      if (matchingItem) {
+        orderedProducts.push({item: matchingItem, quantity: cartItem.quantity });
+      }
+
+    }
+  
+    // Now you have an array of ordered products, you can proceed with further processing or display
+    console.log("Ordered Products:", orderedProducts);
+    // Perform other operations such as sending the order data to the server, displaying a confirmation message, etc.
+
+    const token = localStorage.getItem("accessToken")
+
+    const decoded = jwtDecode(token)
+    const email = decoded.email
+
+    const userData = {
+      orderItems: orderedProducts,
+      totalPrice: total,
+      email: email
+    }
+
+    makeOrder(userData)
+    
+  };
+  const apiBaseUrl = 'https://ojamata.onrender.com/api/customer-profile/order'
+
+    const axiosInstance = axios.create({
+      baseURL: apiBaseUrl,
+      timeout: 5000,
+      crossdomain: true,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        
+      }
+    });
+    
+  const makeOrder = async (userData) => {
+    try {
+      const response = await axiosInstance.post(apiBaseUrl, userData);
+      console.log('Order successful', response.data);
+
+
+      alert('Order successful')
+
+      localStorage.removeItem("cartItems");
+      navigate('/customer')
+    } catch (error) {
+      console.error('Unsuccessful Order', error);
+      alert('Unsuccessful order')
+    }
+  };
+
   return (
     <div className='lg:flex col-span-1 lg:px-0 px-10 justify-center gap-[200px] mt-10 '>
       <div className='mb-10'>
@@ -72,7 +138,7 @@ const ShoppingItem = () => {
         <div>
           {isVisible && cartItem.map((item, index) => (
             <div key={index} className='flex  lg:gap-40 gap-10 border-2 lg:w-[900px] px-4 py-7 rounded-lg shadow-black mt-5'>
-              <p className=' lg:text-3xl text-2xl'>{item.itemName}</p>
+              <p className=' lg:text-3xl text-2xl'>{item.name}</p>
               <ItemIncreaseBtn quantity={item.quantity} onQuantityChange={(newQuantity) => handleQuantityChange(index, newQuantity)} />
               <p className='lg:text-3xl text-2xl'>₦{item.price}</p>
               <p className='lg:text-3xl text-2xl'>₦{totalPrice[index]}</p> {/* Access total price by index */}
@@ -104,7 +170,7 @@ const ShoppingItem = () => {
         <div className='lg:text-3xl text-2xl flex lg:gap-60 gap-20  bg-green-800 text-white px-6 py-4 rounded-lg'>
           <p>{total}</p>
           <div className='flex gap-2'>
-            <p>Checkout</p>
+            <p onClick={handleCheckout}>Checkout</p>
             <FaArrowRight/>
           </div>
         </div>

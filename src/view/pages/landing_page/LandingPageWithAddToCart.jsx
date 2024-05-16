@@ -4,13 +4,13 @@ import Ads from './Ads'
 import Benefits from './Benefits'
 import MobileApp from './MobileApp'
 import ExploreCategoriesWithAddToCart from './ExploreCategoriesWithAddToCart'
-import CustomerHero from './CustomerHomePage'
+import NewHero from './NewHero'
 
 
 const LandingPageWithAddToCart = () => {
   return (
     <div className='pt-[120px]'>
-        <CustomerHero/>
+        <NewHero/>
         <Ads/>
         <ExploreCategoriesWithAddToCart/>
         <Benefits/>

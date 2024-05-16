@@ -125,11 +125,12 @@ export const ROUTES = [
         element: <Response text='Payment Successful'/>
     },
     {
-        path: '/login',
+        path: 'prompt/login',
         element: <PromptLogin/>, 
     },
+
     {
-        path: '/login/user',
+        path: '/login',
         element: <Login/>, 
     },
     {
@@ -158,7 +159,7 @@ export const ROUTES = [
     },
     {
         path:'customer/orderhistory',
-        element:<AdminsCustomerOrderList/>
+        element:<OrderPage/>
     }
 
 ]
